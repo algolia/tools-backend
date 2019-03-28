@@ -1,0 +1,28 @@
+
+      export default {
+        functional: true,
+        render(_h, _vm) {
+          const { _c, _v, data, children = [] } = _vm;
+
+          const {
+            class: classNames,
+            staticClass,
+            style,
+            staticStyle,
+            attrs = {},
+            ...rest
+          } = data;
+
+          return _c(
+            'svg',
+            {
+              class: [classNames,staticClass],
+              style: [style,staticStyle],
+              attrs: Object.assign({"xmlns":"http://www.w3.org/2000/svg","viewBox":"0 0 16 16"}, attrs),
+              ...rest,
+            },
+            children.concat([_c('path',{attrs:{"d":"M15 7H9V1a1 1 0 0 0-2 0v6H1a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0V9h6a1 1 0 0 0 0-2z"}})])
+          )
+        }
+      }
+    

@@ -1,0 +1,28 @@
+
+      export default {
+        functional: true,
+        render(_h, _vm) {
+          const { _c, _v, data, children = [] } = _vm;
+
+          const {
+            class: classNames,
+            staticClass,
+            style,
+            staticStyle,
+            attrs = {},
+            ...rest
+          } = data;
+
+          return _c(
+            'svg',
+            {
+              class: [classNames,staticClass],
+              style: [style,staticStyle],
+              attrs: Object.assign({"xmlns":"http://www.w3.org/2000/svg","viewBox":"0 0 29.94 20"}, attrs),
+              ...rest,
+            },
+            children.concat([_c('path',{attrs:{"d":"M6.94 1H3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h3.94a3 3 0 0 0 3-3V4a3 3 0 0 0-3-3zm1 15a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h3.94a1 1 0 0 1 1 1zM26.94 1H23a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h3.94a3 3 0 0 0 3-3V4a3 3 0 0 0-3-3zm1 15a1 1 0 0 1-1 1H23a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h3.94a1 1 0 0 1 1 1zM15 2.4a1 1 0 0 1-1-1V1a1 1 0 0 1 2 0v.4a1 1 0 0 1-1 1zM15 15.86a1 1 0 0 1-1-1v-.75a1 1 0 0 1 2 0v.75a1 1 0 0 1-1 1zm0-4.49a1 1 0 0 1-1-1v-.74a1 1 0 0 1 2 0v.74a1 1 0 0 1-1 1zm0-4.48a1 1 0 0 1-1-1v-.75a1 1 0 1 1 2 0v.75a1 1 0 0 1-1 1zM15 20a1 1 0 0 1-1-1v-.4a1 1 0 0 1 2 0v.4a1 1 0 0 1-1 1z"}})])
+          )
+        }
+      }
+    
