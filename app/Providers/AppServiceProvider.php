@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
             $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
         }
 
+        dd(config('oauth.redirectUri'));
         $this->app->singleton('oauth_provider', function ($app) {
             return new \League\OAuth2\Client\Provider\GenericProvider([
                 'clientId'                => config('oauth.clientId'),
