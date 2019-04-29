@@ -19,12 +19,12 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->singleton('oauth_provider', function ($app) {
             return new \League\OAuth2\Client\Provider\GenericProvider([
-                'clientId'                => 'fc65e47125f599493be9e43b9dd84efed9c3ef16c78d45958349b901b3e6576d',
-                'clientSecret'            => '39a3820b65352daa51d32b0542e990519912b1f28a99387705bfbc2764d8b7c6',
-                'redirectUri'             => 'https://metaparams-backend.build/login/callback',
-                'urlAuthorize'            => 'https://www.algolia.com/oauth/authorize',
-                'urlAccessToken'          => 'https://www.algolia.com/oauth/token',
-                'urlResourceOwnerDetails' => 'https://www.algolia.com/oauth/token'
+                'clientId'                => config('oauth.clientId'),
+                'clientSecret'            => config('oauth.clientSecret'),
+                'redirectUri'             => config('oauth.redirectUri'),
+                'urlAuthorize'            => config('oauth.urlAuthorize'),
+                'urlAccessToken'          => config('oauth.urlAccessToken'),
+                'urlResourceOwnerDetails' => config('oauth.urlResourceOwnerDetails')
             ]);
         });
     }
