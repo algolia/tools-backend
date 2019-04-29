@@ -1,10 +1,22 @@
 <?php
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/login/current_user', 'AuthController@currentUser');
+    Route::get('/user/info', 'AuthController@currentUser');
 
-    Route::get('/apps', function (\Illuminate\Http\Request $request) {
-        return ['ok', 'truc', 'lolilol'];
+    Route::get('/user/apps', function (\Illuminate\Http\Request $request) {
+        return ['AJ0P3S7DWQ', 'N6E3P8T447', 'RSBCBF0EG8'];
+    });
+
+    Route::get('/signature/{appId}', function ($appId, \Illuminate\Http\Request $request) {
+        $ip = $request->ip();
+        $base = $appId.$ip;
+        $encrypt = 'etneckthyghykHookofvotPayWrimtOkyajhyThracyochiWettijWiHiatAkOavpyWyddelUshByafIrwytUjAckvarhadJoymsEipIbdyewCuwocjodsEnsaubyefsProynwacdebnirobinpyivJavephaumhavCacShoglivPhaynfinWutCavsingyealwothIxIskOcbiwygByctAwtupnurrUdveOsjovurNuemavjorUsoavEaverOt3boicAwtyubeirdyanivjoodsyejTyFlupMyphlybNetEicOahinAvtydarnijtethPembeavRirnEevhijBukGubVaccagEdheabyoctOdtisjuIpfithCyxAdkobnerraicityajWurckEim0queOnBydjoitIkDegJatPeffasUpteroneetVislykiftOcibviDrareicyodphictUddepsEewOflisjuWeryachaygtatpedbomrathliryeeeBlyftowAjPoshficVeksejtanBicgigdaquitdymkuingiatdusIjokseibyojbeidnidifGiGunocatAumfefkageysespOmfewHeOvHyshrarjojhyctevDatirrkorEewhynnOghudTumIg1fagChigs(quafUv9QueingIdyofVidashophCobyoumCufemghoactIstArgyohig7hayctojMiCejajNegAcJeunLawUlAgsiksAtNevef';
+        $toHash = $base.$encrypt;
+        $signature = hash('sha256', $toHash);
+
+        return [
+            'signature' => $signature
+        ];
     });
 });
 
