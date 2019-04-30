@@ -16,10 +16,10 @@ class AuthenticateBeta
         $email = $values['user']['email'];
 
         $authorizedEmails = [
-            //'maxime.locqueville@algolia.com',
+            'maxime.locqueville@algolia.com',
             'julien.paroche@algolia.com',
             'michael.sokol@algolia.com',
-            'sylvain.huprelle@algolia.com',
+            //'sylvain.huprelle@algolia.com',
         ];
 
         if (!in_array($email, $authorizedEmails)) {
