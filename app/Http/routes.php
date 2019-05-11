@@ -9,7 +9,7 @@ Route::middleware(['auth', 'auth.beta'])->group(function () {
 
     Route::get('/signature/{appId}', function ($appId, \Illuminate\Http\Request $request) {
         $ip = $request->ip();
-        Log::log($ip);
+        Log::debug($ip);
         $base = $appId.$ip;
         $encrypt = 'etneckthyghykHookofvotPayWrimtOkyajhyThracyochiWettijWiHiatAkOavpyWyddelUshByafIrwytUjAckvarhadJoymsEipIbdyewCuwocjodsEnsaubyefsProynwacdebnirobinpyivJavephaumhavCacShoglivPhaynfinWutCavsingyealwothIxIskOcbiwygByctAwtupnurrUdveOsjovurNuemavjorUsoavEaverOt3boicAwtyubeirdyanivjoodsyejTyFlupMyphlybNetEicOahinAvtydarnijtethPembeavRirnEevhijBukGubVaccagEdheabyoctOdtisjuIpfithCyxAdkobnerraicityajWurckEim0queOnBydjoitIkDegJatPeffasUpteroneetVislykiftOcibviDrareicyodphictUddepsEewOflisjuWeryachaygtatpedbomrathliryeeeBlyftowAjPoshficVeksejtanBicgigdaquitdymkuingiatdusIjokseibyojbeidnidifGiGunocatAumfefkageysespOmfewHeOvHyshrarjojhyctevDatirrkorEewhynnOghudTumIg1fagChigs(quafUv9QueingIdyofVidashophCobyoumCufemghoactIstArgyohig7hayctojMiCejajNegAcJeunLawUlAgsiksAtNevef';
         $toHash = $base.$encrypt;
