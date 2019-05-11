@@ -12,7 +12,6 @@ Route::middleware(['auth', 'auth.beta'])->group(function () {
         if (!$ip) {
             $ip = Request::ip();
         }
-        Log::debug($ip);
         $base = $appId.$ip;
         $encrypt = 'etneckthyghykHookofvotPayWrimtOkyajhyThracyochiWettijWiHiatAkOavpyWyddelUshByafIrwytUjAckvarhadJoymsEipIbdyewCuwocjodsEnsaubyefsProynwacdebnirobinpyivJavephaumhavCacShoglivPhaynfinWutCavsingyealwothIxIskOcbiwygByctAwtupnurrUdveOsjovurNuemavjorUsoavEaverOt3boicAwtyubeirdyanivjoodsyejTyFlupMyphlybNetEicOahinAvtydarnijtethPembeavRirnEevhijBukGubVaccagEdheabyoctOdtisjuIpfithCyxAdkobnerraicityajWurckEim0queOnBydjoitIkDegJatPeffasUpteroneetVislykiftOcibviDrareicyodphictUddepsEewOflisjuWeryachaygtatpedbomrathliryeeeBlyftowAjPoshficVeksejtanBicgigdaquitdymkuingiatdusIjokseibyojbeidnidifGiGunocatAumfefkageysespOmfewHeOvHyshrarjojhyctevDatirrkorEewhynnOghudTumIg1fagChigs(quafUv9QueingIdyofVidashophCobyoumCufemghoactIstArgyohig7hayctojMiCejajNegAcJeunLawUlAgsiksAtNevef';
         $toHash = $base.$encrypt;
