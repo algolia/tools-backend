@@ -11,9 +11,15 @@ class Authenticate
     public function handle(Request $request, Closure $next)
     {
         $accessToken = $request->session()->get('accessToken');
+        $provider = \App::make('oauth_provider');
+
+        if (!$accessToken && $request->input('code')) {
+            $accessToken = $provider->getAccessToken('authorization_code', [
+                'code' => $_GET['code']
+            ]);
+        }
 
         if (!$accessToken || $accessToken->hasExpired()) {
-            $provider = \App::make('oauth_provider');
             $authorizationUrl = $provider->getAuthorizationUrl();
 
             if ($request->isJson()) {
