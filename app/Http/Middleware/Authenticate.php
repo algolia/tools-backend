@@ -13,10 +13,10 @@ class Authenticate
         $accessToken = $request->session()->get('accessToken');
         $provider = \App::make('oauth_provider');
 
-        if (!$accessToken && $request->input('code')) {
-            $accessToken = $provider->getAccessToken('authorization_code', [
-                'code' => $_GET['code']
-            ]);
+        $redirectTo = $request->input('redirect_to');
+
+        if ($redirectTo) {
+            $request->session()->put('redirect_to', $redirectTo);
         }
 
         if (!$accessToken || $accessToken->hasExpired()) {

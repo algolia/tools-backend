@@ -26,6 +26,12 @@ class AuthController
             return $this->currentUser($request);
         }
 
+        $redirectTo = $request->session()->get('redirect_to');
+
+        if ($redirectTo) {
+            return redirect($redirectTo);
+        }
+
         return back();
     }
 

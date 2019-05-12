@@ -8,7 +8,7 @@ Route::middleware(['auth', 'auth.beta'])->group(function () {
     });
 
     Route::get('/signature/{appId}', function ($appId, \Illuminate\Http\Request $request) {
-        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? false;
         if (!$ip) {
             $ip = Request::ip();
         }
