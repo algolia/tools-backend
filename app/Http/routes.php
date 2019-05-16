@@ -1,7 +1,7 @@
 <?php
 
 Route::middleware(['auth', 'auth.beta'])->group(function () {
-    Route::get('/user/info', 'AuthController@currentUser');
+    Route::get('/user/info', 'AuthController@currentUser'); 
 
     Route::get('/user/apps', function (\Illuminate\Http\Request $request) {
         return ['AJ0P3S7DWQ', 'N6E3P8T447', 'RSBCBF0EG8'];
