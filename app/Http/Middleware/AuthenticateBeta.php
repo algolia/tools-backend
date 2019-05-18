@@ -26,6 +26,7 @@ class AuthenticateBeta
             'marc.helbling@algolia.com',
             'maria.schreiber@algolia.com',
             'sepehr.fakour@algolia.com',
+            'peter.bailey@algolia.com',
         ];
 
         if (!in_array($email, $authorizedEmails)) {
