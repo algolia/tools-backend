@@ -22,7 +22,7 @@ Route::middleware(['auth', 'auth.beta'])->group(function () {
         ];
     });
 
-    Route::post('/state/list', 'StateController@addState');
+    Route::post('/state', 'StateController@addState');
     Route::get('/state/get/{code}', 'StateController@getState');
 });
 
