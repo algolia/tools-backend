@@ -1,5 +1,11 @@
 <?php
 
+$url = parse_url(getenv("DATABASE_URL"));
+$host = $url["host"] ?? 'localhost';
+$database = isset($url['path']) ? substr($url['path'], 1) : 'bob';
+$user = $url['user'] ?? 'root';
+$pass = $url['pass'] ?? '';
+
 return [
 
     /*
@@ -42,11 +48,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', $host),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', $database),
+            'username' => env('DB_USERNAME', $user),
+            'password' => env('DB_PASSWORD', $pass),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -61,11 +67,11 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', $host),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', $database),
+            'username' => env('DB_USERNAME', $user),
+            'password' => env('DB_PASSWORD', $pass),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
