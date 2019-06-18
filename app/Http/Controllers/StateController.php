@@ -5,6 +5,13 @@ use App\Models\State;
 use Illuminate\Http\Request;
 
 class StateController {
+    private function getUserId(Request $request) {
+        $accessToken = $request->session()->get('accessToken');
+        $values = $accessToken->getValues();
+
+        return $values['user']['id'];
+    }
+
     public function addState(Request $request) {
         $userId = $this->getUserId($request);
 
