@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\State;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class StateController {
@@ -35,6 +36,12 @@ class StateController {
     }
 
     public function getState($shortCode) {
-        return State::where('short_code', '=', $shortCode)->first();
+        $state = State::where('short_code', '=', $shortCode)->first();
+
+        if (!$state) {
+            return JsonResponse::create(null, 404);
+        }
+
+        return $state;
     }
 }
