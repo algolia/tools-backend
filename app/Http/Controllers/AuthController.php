@@ -78,11 +78,7 @@ class AuthController
             ];
         }
 
-        if ($request->wantsJson()) {
-            return $jsonToken;
-        } else {
-            return "Logged in";
-        }
+        return $jsonToken;
     }
 
     public function getSignature($appId, Request $request)
