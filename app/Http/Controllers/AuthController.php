@@ -30,7 +30,7 @@ class AuthController
 
         $redirectTo = $request->session()->get('redirect_to');
 
-        if ($redirectTo) {
+        if ($redirectTo && str_starts_with($redirectTo, env('VUE_APP_METAPARAMS_BACKEND_ENDPOINT'))) {
             return redirect($redirectTo);
         }
 
@@ -78,7 +78,11 @@ class AuthController
             ];
         }
 
-        return $jsonToken;
+        if ($request->wantsJson()) {
+            return $jsonToken;
+        } else {
+            return "Logged in";
+        }
     }
 
     public function getSignature($appId, Request $request)

@@ -17,7 +17,7 @@ class Authenticate
 
         $redirectTo = $request->input('redirect_to');
 
-        if ($redirectTo) {
+        if ($redirectTo && str_starts_with($redirectTo, env('VUE_APP_METAPARAMS_BACKEND_ENDPOINT'))) {
             $request->session()->put('redirect_to', $redirectTo);
         }
 
