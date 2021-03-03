@@ -30,7 +30,7 @@ class AuthController
 
         $redirectTo = $request->session()->get('redirect_to');
 
-        if ($redirectTo && str_starts_with($redirectTo, env('VUE_APP_METAPARAMS_BACKEND_ENDPOINT'))) {
+        if ($redirectTo && strpos($redirectTo, env('VUE_APP_METAPARAMS_FRONTEND_ENDPOINT')) === 0) {
             return redirect($redirectTo);
         }
 
