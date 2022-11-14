@@ -43,6 +43,11 @@ Route::middleware(['auth', 'auth.oldEmployees'])->group(function () {
 
 Route::get('/login/callback', 'AuthController@algoliaLoginCallback');
 
+Route::get('/migrate', function () {
+    \Artisan::call('migrate');
+    return \Artisan::output();
+});
+
 Route::get('/clear', function (\Illuminate\Http\Request $request) {
     $request->session()->flush();
 });

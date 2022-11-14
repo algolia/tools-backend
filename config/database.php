@@ -1,6 +1,6 @@
 <?php
 
-$url = parse_url(getenv("DATABASE_URL"));
+$url = parse_url(getenv("DB_MAIN_ADDRESS"));
 $host = $url["host"] ?? 'localhost';
 $database = isset($url['path']) ? substr($url['path'], 1) : 'bob';
 $user = $url['user'] ?? 'root';
@@ -19,7 +19,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -46,51 +46,19 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
-        'mysql' => [
-            'driver' => 'mysql',
-            'host' => env('DB_HOST', $host),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', $database),
-            'username' => env('DB_USERNAME', $user),
-            'password' => env('DB_PASSWORD', $pass),
-            'unix_socket' => env('DB_SOCKET', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
-            'prefix' => '',
-            'prefix_indexes' => true,
-            'strict' => true,
-            'engine' => null,
-            'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-            ]) : [],
-        ],
-
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', $host),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', $database),
-            'username' => env('DB_USERNAME', $user),
-            'password' => env('DB_PASSWORD', $pass),
+            'host' => env('DB_MAIN_ADDRESS', $host),
+            'port' => env('DB_MAIN_PORT', '5432'),
+            'database' => 'mydb',
+            'username' => env('DB_MAIN_USERNAME', $user),
+            'password' => env('DB_MAIN_PASSWORD', $pass),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
-
-        'sqlsrv' => [
-            'driver' => 'sqlsrv',
-            'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '1433'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
-            'charset' => 'utf8',
-            'prefix' => '',
-            'prefix_indexes' => true,
-        ],
-
     ],
 
     /*

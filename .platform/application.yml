@@ -1,0 +1,67 @@
+http:
+  - target: web
+
+build:
+  - name: web
+
+relationalDatabase:
+  - name: main
+    engine:
+      name: postgres
+      version: "14"
+    highlyAvailable: false
+    size: micro
+
+compute:
+  - name: web
+    port: 8080
+    environment:
+      - name: DB_CONNECTION
+        value: pgsql
+      - name: LOG_CHANNEL
+        value: errorlogq
+
+      - name: ALGOLIA_API_KEY
+        secretName: algolia-api-key
+      - name: ALGOLIA_APP_ID
+        secretName: algolia-app-id
+      - name: ALGOLIA_APPLICATIONS_API_KEY
+        secretName: algolia-applications-api-key
+      - name: ALGOLIA_APPLICATIONS_APP_ID
+        secretName: algolia-applications-app-id
+      - name: ALGOLIA_APPLICATIONS_INDEX_NAME
+        secretName: algolia-applications-index-name
+      - name: APP_KEY
+        secretName: app-key
+      - name: DASHBOARD_CLIENT_ID
+        secretName: dashboard-client-id
+      - name: DASHBOARD_CLIENT_SECRET
+        secretName: dashboard-client-secret
+      - name: DASHBOARD_INTERNAL_API_KEY
+        secretName: dashboard-internal-api-key
+      - name: DASHBOARD_REDIRECT_URI
+        secretName: dashboard-redirect-uri
+      - name: DASHBOARD_URL_ACCESS_TOKEN
+        secretName: dashboard-url-access-token
+      - name: DASHBOARD_URL_AUTHORIZE
+        secretName: dashboard-url-authorize
+      - name: DASHBOARD_URL_RESOURCE_OWNER_DETAILS
+        secretName: dashboard-url-resource-owner-details
+      - name: ENGINE_SIGNATURE
+        secretName: engine-signature
+      - name: IMAGE_PROXY_BASE_URL
+        secretName: image-proxy-base-url
+      - name: IMAGE_PROXY_SIGNING_KEY
+        secretName: image-proxy-signing-key
+      - name: IMAGE_PROXY_SIGNING_SALT
+        secretName: image-proxy-signing-salt
+      - name: SESSION_DOMAIN
+        secretName: session-domain
+      - name: VUE_APP_APP_ID
+        secretName: vue-app-app-id
+      - name: VUE_APP_METAPARAMS_BACKEND_ENDPOINT
+        secretName: vue-app-metaparams-backend-endpoint
+      - name: VUE_APP_METAPARAMS_FRONTEND_ENDPOINT
+        secretName: vue-app-metaparams-frontend-endpoint
+      - name: WAVEFRONT_SECURITY
+        secretName: wavefront-security
