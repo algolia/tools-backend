@@ -1,6 +1,6 @@
-FROM php:7.2
+FROM php:7.4
 
-RUN apt-get update -y && apt-get install -y openssl zip unzip git libpq-dev
+RUN apt update -y && apt install -y openssl zip unzip git libpq-dev postgresql-client
 
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
