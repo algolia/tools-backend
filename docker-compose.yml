@@ -17,7 +17,6 @@ services:
         environment:
             DB_MAIN_ADDRESS: db
             DB_MAIN_PORT: 5432
-            DB_MAIN_NAME: devdb
             DB_MAIN_USERNAME: user
             DB_MAIN_PASSWORD: pass
 

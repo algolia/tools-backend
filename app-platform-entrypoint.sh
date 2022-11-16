@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
+psql postgresql://${DB_MAIN_USERNAME}:${DB_MAIN_PASSWORD}@${DB_MAIN_ADDRESS}:${DB_MAIN_PORT}/postgres \
+    -c 'CREATE DATABASE mydb;' || echo 'Database already exists'
+
 # Perform the database migration
 php artisan migrate --force
 
