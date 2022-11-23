@@ -51,6 +51,10 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Credentials: true');
+header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+
 $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );
