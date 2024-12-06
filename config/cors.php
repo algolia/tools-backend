@@ -12,11 +12,12 @@ return [
     |
     */
 
-    'supportsCredentials' => true,
-    'allowedOrigins' => ['*'],//['http://127.0.0.1:8080'],
-    'allowedOriginsPatterns' => [],
-    'allowedHeaders' => ['*'],
-    'allowedMethods' => ['*'],
-    'exposedHeaders' => [],
-    'maxAge' => 0,
+    'paths' => ['*'],
+    'supports_credentials' => true,
+    'allowed_origins' => ['*'],
+    'allowed_origins_patterns' => [],
+    'allowed_headers' => ['*'],
+    'allowed_methods' => ['*'],
+    'exposed_headers' => [],
+    'max_age' => 0,
 ];

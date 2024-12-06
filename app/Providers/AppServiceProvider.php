@@ -13,10 +13,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if ($this->app->environment() !== 'production') {
-            $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
-        }
-
         $this->app->singleton('oauth_provider', function ($app) {
             return new \League\OAuth2\Client\Provider\GenericProvider([
                 'clientId'                => config('oauth.clientId'),

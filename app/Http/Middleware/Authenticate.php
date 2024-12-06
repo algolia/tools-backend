@@ -2,7 +2,6 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Closure;
 use League\OAuth2\Client\Token\AccessTokenInterface;
@@ -32,7 +31,7 @@ class Authenticate
             $authorizationUrl = $provider->getAuthorizationUrl();
 
             if ($request->isJson()) {
-                return JsonResponse::create(['redirect_url' => $authorizationUrl]);
+                return response()->json(['redirect_url' => $authorizationUrl]);
             }
 
             return redirect($authorizationUrl);

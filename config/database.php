@@ -1,6 +1,6 @@
 <?php
 
-$url = parse_url(getenv("DB_MAIN_ADDRESS"));
+$url = parse_url(getenv("DATABASE_URL"));
 $host = $url["host"] ?? 'localhost';
 $database = isset($url['path']) ? substr($url['path'], 1) : 'bob';
 $user = $url['user'] ?? 'root';
@@ -50,7 +50,7 @@ return [
             'driver' => 'pgsql',
             'host' => env('DB_MAIN_ADDRESS', $host),
             'port' => env('DB_MAIN_PORT', '5432'),
-            'database' => 'mydb',
+            'database' => env('DB_DATABASE', $database),
             'username' => env('DB_MAIN_USERNAME', $user),
             'password' => env('DB_MAIN_PASSWORD', $pass),
             'charset' => 'utf8',

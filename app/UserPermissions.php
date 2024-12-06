@@ -25,7 +25,7 @@ class UserPermissions {
     }
 
     public function isGuest() {
-        return $this->isAlgoliaEmployee() || in_array($this->email, ['vincent@codeagain.com', 'maxiloc@gmail.com']);
+        return $this->isAlgoliaEmployee();
     }
 
     private function endsWith($string, $endString)

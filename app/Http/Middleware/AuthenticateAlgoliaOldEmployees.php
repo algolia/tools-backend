@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use App\UserPermissions;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Closure;
 
