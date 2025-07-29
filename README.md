@@ -13,20 +13,20 @@ This repo is a laravel application that allows to run the following feature:
 
 Install dependencies
 
-Note that version 7.1 is required, which is a legacy version of PHP. These instructions are specific to
+Note that version 8.3 is required, which is a legacy version of PHP. These instructions are specific to
 MacOS. For other operating systems, please refer to their individual documentation for the relevant tools.
 
 ```sh
-brew install shivammathur/php/php@7.1
+brew install shivammathur/php/php@8.3
 ```
 
-Make sure to add php 7.1 to your path
+Make sure to add php 8.3 to your path
 
 ```sh
-echo 'export PATH="/opt/homebrew/opt/php@7.1/bin:$PATH"' >> ~/.zshrc
-echo 'export PATH="/opt/homebrew/opt/php@7.1/sbin:$PATH"' >> ~/.zshrc
-echo 'export LDFLAGS="-L/opt/homebrew/opt/php@7.1/lib"' >> ~/.zshrc
-echo 'export CPPFLAGS="-I/opt/homebrew/opt/php@7.1/include"' >> ~/.zshrc
+echo 'export PATH="/opt/homebrew/opt/php@8.3/bin:$PATH"' >> ~/.zshrc
+echo 'export PATH="/opt/homebrew/opt/php@8.3/sbin:$PATH"' >> ~/.zshrc
+echo 'export LDFLAGS="-L/opt/homebrew/opt/php@8.3/lib"' >> ~/.zshrc
+echo 'export CPPFLAGS="-I/opt/homebrew/opt/php@8.3/include"' >> ~/.zshrc
 ```
 
 [composer](https://getcomposer.org/download/)
@@ -45,10 +45,6 @@ mv composer.phar /usr/local/bin/composer
 ```
 
 And then to get the dependencies:
-
-Note that you might encounter issues with `composer` requiring php 8.3 or higher. If that happens, you can run `brew install shivammathur/php/php@8.3` and make sure the path is set correctly in your `.zshrc` file. Check your version with `php -v`. re-source with `source ~/.zshrc` if needed.
-
-Then, run the following commands to install the dependencies:
 
 ```sh
 composer update
@@ -69,7 +65,7 @@ To run locally the recommended way is to use [Valet](https://laravel.com/docs/8.
 composer global require laravel/valet:^2.1
 echo 'export PATH="~/.composer/vendor/bin:$PATH"' >> ~/.zshrc
 
-valet use php@7.1
+valet use php@8.3
 valet install
 ```
 
