@@ -21,7 +21,7 @@ services:
             DB_MAIN_PASSWORD: pass
 
     db:
-        image: postgres:12
+        image: postgres:17
         container_name: db
         restart: always
         volumes:

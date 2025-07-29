@@ -11,7 +11,7 @@ relationalDatabase:
   - name: main
     engine:
       name: postgres
-      version: "14"
+      version: "17"
     highlyAvailable: false
     size: micro
 
