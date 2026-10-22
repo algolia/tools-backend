@@ -17,7 +17,7 @@ class UserPermissions {
     }
 
     public function getEmail() {
-        return $this->getEmail();
+        return $this->email;
     }
 
     public function isAlgoliaEmployee() {
